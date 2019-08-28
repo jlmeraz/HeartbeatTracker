@@ -1,0 +1,865 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2CAE4D1823160B7000758043 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D1723160B7000758043 /* AppDelegate.swift */; };
+		2CAE4D1C23160B7000758043 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D1B23160B7000758043 /* RootViewController.swift */; };
+		2CAE4D1F23160B7000758043 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAE4D1D23160B7000758043 /* Main.storyboard */; };
+		2CAE4D2123160B7100758043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAE4D2023160B7100758043 /* Assets.xcassets */; };
+		2CAE4D2423160B7100758043 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAE4D2223160B7100758043 /* LaunchScreen.storyboard */; };
+		2CAE4D3523160C8600758043 /* TrackerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CAE4D3323160C8600758043 /* TrackerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CAE4D3823160C8600758043 /* TrackerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAE4D3123160C8600758043 /* TrackerKit.framework */; };
+		2CAE4D3923160C8600758043 /* TrackerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAE4D3123160C8600758043 /* TrackerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2CAE4D3F23160DCD00758043 /* NSUserActivity+IntentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D3E23160DCD00758043 /* NSUserActivity+IntentData.swift */; };
+		2CAE4D442316304400758043 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D432316304400758043 /* RootView.swift */; };
+		2CAE4D4823163E8200758043 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D4723163E8200758043 /* DevicesView.swift */; };
+		2CAE4D4923163E8200758043 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D4723163E8200758043 /* DevicesView.swift */; };
+		2CAE4D4B2316462600758043 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D4A2316462600758043 /* DevicesViewController.swift */; };
+		2CAE4D4E231653FA00758043 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D4D231653FA00758043 /* TrackerViewController.swift */; };
+		2CAE4D512316545900758043 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D502316545900758043 /* TrackerView.swift */; };
+		2CAE4D522316545900758043 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D502316545900758043 /* TrackerView.swift */; };
+		2CAE4D542316B72700758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; };
+		2CAE4D552316B72700758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; };
+		2CAE4D5D2316BE1200758043 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D5C2316BE1200758043 /* IntentHandler.swift */; };
+		2CAE4D662316BE1200758043 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAE4D652316BE1200758043 /* IntentsUI.framework */; };
+		2CAE4D692316BE1200758043 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D682316BE1200758043 /* IntentViewController.swift */; };
+		2CAE4D6C2316BE1200758043 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAE4D6A2316BE1200758043 /* MainInterface.storyboard */; };
+		2CAE4D702316BE1200758043 /* TrackerIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2CAE4D632316BE1200758043 /* TrackerIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2CAE4D732316BE1200758043 /* TrackerIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2CAE4D5A2316BE1200758043 /* TrackerIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2CAE4D7B2316BF9200758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; };
+		2CAE4D7C2316BF9300758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; };
+		2CAE4D7F2316DACC00758043 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D7E2316DACC00758043 /* BLEDevice.swift */; };
+		2CAE4D802316DACC00758043 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D7E2316DACC00758043 /* BLEDevice.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2CAE4D3623160C8600758043 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CAE4D0C23160B7000758043 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CAE4D3023160C8600758043;
+			remoteInfo = TrackerKit;
+		};
+		2CAE4D6E2316BE1200758043 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CAE4D0C23160B7000758043 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CAE4D622316BE1200758043;
+			remoteInfo = TrackerIntentUI;
+		};
+		2CAE4D712316BE1200758043 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CAE4D0C23160B7000758043 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CAE4D592316BE1200758043;
+			remoteInfo = TrackerIntent;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2CAE4D3D23160C8600758043 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2CAE4D3923160C8600758043 /* TrackerKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAE4D7A2316BE1200758043 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2CAE4D702316BE1200758043 /* TrackerIntentUI.appex in Embed App Extensions */,
+				2CAE4D732316BE1200758043 /* TrackerIntent.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2CAE4D1423160B7000758043 /* HeartBeatTrackerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartBeatTrackerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CAE4D1723160B7000758043 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2CAE4D1B23160B7000758043 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		2CAE4D1E23160B7000758043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2CAE4D2023160B7100758043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2CAE4D2323160B7100758043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2CAE4D2523160B7100758043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CAE4D3123160C8600758043 /* TrackerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrackerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CAE4D3323160C8600758043 /* TrackerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrackerKit.h; sourceTree = "<group>"; };
+		2CAE4D3423160C8600758043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CAE4D3E23160DCD00758043 /* NSUserActivity+IntentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSUserActivity+IntentData.swift"; sourceTree = "<group>"; };
+		2CAE4D432316304400758043 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		2CAE4D4723163E8200758043 /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
+		2CAE4D4A2316462600758043 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
+		2CAE4D4D231653FA00758043 /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
+		2CAE4D502316545900758043 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
+		2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TrakerIntents.intentdefinition; sourceTree = "<group>"; };
+		2CAE4D5A2316BE1200758043 /* TrackerIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TrackerIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CAE4D5C2316BE1200758043 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		2CAE4D5E2316BE1200758043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CAE4D632316BE1200758043 /* TrackerIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TrackerIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CAE4D652316BE1200758043 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		2CAE4D682316BE1200758043 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		2CAE4D6B2316BE1200758043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2CAE4D6D2316BE1200758043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CAE4D7E2316DACC00758043 /* BLEDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDevice.swift; sourceTree = "<group>"; };
+		2CAE4D8123170AC400758043 /* HeartBeatTrackerDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeartBeatTrackerDemo.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2CAE4D1123160B7000758043 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CAE4D3823160C8600758043 /* TrackerKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAE4D2E23160C8600758043 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAE4D572316BE1200758043 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAE4D602316BE1200758043 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CAE4D662316BE1200758043 /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2CAE4D0B23160B7000758043 = {
+			isa = PBXGroup;
+			children = (
+				2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */,
+				2CAE4D4023162EAF00758043 /* View */,
+				2CAE4D2B23160C2300758043 /* SharedFramework */,
+				2CAE4D7D2316DA3000758043 /* Model */,
+				2CAE4D1623160B7000758043 /* HeartBeatTrackerDemo */,
+				2CAE4D3223160C8600758043 /* TrackerKit */,
+				2CAE4D5B2316BE1200758043 /* TrackerIntent */,
+				2CAE4D672316BE1200758043 /* TrackerIntentUI */,
+				2CAE4D642316BE1200758043 /* Frameworks */,
+				2CAE4D1523160B7000758043 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2CAE4D1523160B7000758043 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE4D1423160B7000758043 /* HeartBeatTrackerDemo.app */,
+				2CAE4D3123160C8600758043 /* TrackerKit.framework */,
+				2CAE4D5A2316BE1200758043 /* TrackerIntent.appex */,
+				2CAE4D632316BE1200758043 /* TrackerIntentUI.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2CAE4D1623160B7000758043 /* HeartBeatTrackerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE4D8123170AC400758043 /* HeartBeatTrackerDemo.entitlements */,
+				2CAE4D1723160B7000758043 /* AppDelegate.swift */,
+				2CAE4D1B23160B7000758043 /* RootViewController.swift */,
+				2CAE4D4A2316462600758043 /* DevicesViewController.swift */,
+				2CAE4D4D231653FA00758043 /* TrackerViewController.swift */,
+				2CAE4D1D23160B7000758043 /* Main.storyboard */,
+				2CAE4D2023160B7100758043 /* Assets.xcassets */,
+				2CAE4D2223160B7100758043 /* LaunchScreen.storyboard */,
+				2CAE4D2523160B7100758043 /* Info.plist */,
+			);
+			path = HeartBeatTrackerDemo;
+			sourceTree = "<group>";
+		};
+		2CAE4D2B23160C2300758043 /* SharedFramework */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE4D3E23160DCD00758043 /* NSUserActivity+IntentData.swift */,
+			);
+			path = SharedFramework;
+			sourceTree = "<group>";
+		};
+		2CAE4D3223160C8600758043 /* TrackerKit */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE4D3323160C8600758043 /* TrackerKit.h */,
+				2CAE4D3423160C8600758043 /* Info.plist */,
+			);
+			path = TrackerKit;
+			sourceTree = "<group>";
+		};
+		2CAE4D4023162EAF00758043 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE4D432316304400758043 /* RootView.swift */,
+				2CAE4D4723163E8200758043 /* DevicesView.swift */,
+				2CAE4D502316545900758043 /* TrackerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CAE4D5B2316BE1200758043 /* TrackerIntent */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE4D5C2316BE1200758043 /* IntentHandler.swift */,
+				2CAE4D5E2316BE1200758043 /* Info.plist */,
+			);
+			path = TrackerIntent;
+			sourceTree = "<group>";
+		};
+		2CAE4D642316BE1200758043 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE4D652316BE1200758043 /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CAE4D672316BE1200758043 /* TrackerIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE4D682316BE1200758043 /* IntentViewController.swift */,
+				2CAE4D6A2316BE1200758043 /* MainInterface.storyboard */,
+				2CAE4D6D2316BE1200758043 /* Info.plist */,
+			);
+			path = TrackerIntentUI;
+			sourceTree = "<group>";
+		};
+		2CAE4D7D2316DA3000758043 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE4D7E2316DACC00758043 /* BLEDevice.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2CAE4D2C23160C8600758043 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CAE4D3523160C8600758043 /* TrackerKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2CAE4D1323160B7000758043 /* HeartBeatTrackerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CAE4D2823160B7100758043 /* Build configuration list for PBXNativeTarget "HeartBeatTrackerDemo" */;
+			buildPhases = (
+				2CAE4D1023160B7000758043 /* Sources */,
+				2CAE4D1123160B7000758043 /* Frameworks */,
+				2CAE4D1223160B7000758043 /* Resources */,
+				2CAE4D3D23160C8600758043 /* Embed Frameworks */,
+				2CAE4D7A2316BE1200758043 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2CAE4D3723160C8600758043 /* PBXTargetDependency */,
+				2CAE4D6F2316BE1200758043 /* PBXTargetDependency */,
+				2CAE4D722316BE1200758043 /* PBXTargetDependency */,
+			);
+			name = HeartBeatTrackerDemo;
+			productName = HeartBeatTrackerDemo;
+			productReference = 2CAE4D1423160B7000758043 /* HeartBeatTrackerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2CAE4D3023160C8600758043 /* TrackerKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CAE4D3A23160C8600758043 /* Build configuration list for PBXNativeTarget "TrackerKit" */;
+			buildPhases = (
+				2CAE4D2C23160C8600758043 /* Headers */,
+				2CAE4D2D23160C8600758043 /* Sources */,
+				2CAE4D2E23160C8600758043 /* Frameworks */,
+				2CAE4D2F23160C8600758043 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrackerKit;
+			productName = TrackerKit;
+			productReference = 2CAE4D3123160C8600758043 /* TrackerKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2CAE4D592316BE1200758043 /* TrackerIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CAE4D772316BE1200758043 /* Build configuration list for PBXNativeTarget "TrackerIntent" */;
+			buildPhases = (
+				2CAE4D562316BE1200758043 /* Sources */,
+				2CAE4D572316BE1200758043 /* Frameworks */,
+				2CAE4D582316BE1200758043 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrackerIntent;
+			productName = TrackerIntent;
+			productReference = 2CAE4D5A2316BE1200758043 /* TrackerIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		2CAE4D622316BE1200758043 /* TrackerIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CAE4D742316BE1200758043 /* Build configuration list for PBXNativeTarget "TrackerIntentUI" */;
+			buildPhases = (
+				2CAE4D5F2316BE1200758043 /* Sources */,
+				2CAE4D602316BE1200758043 /* Frameworks */,
+				2CAE4D612316BE1200758043 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrackerIntentUI;
+			productName = TrackerIntentUI;
+			productReference = 2CAE4D632316BE1200758043 /* TrackerIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2CAE4D0C23160B7000758043 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Jose Meraz";
+				TargetAttributes = {
+					2CAE4D1323160B7000758043 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					2CAE4D3023160C8600758043 = {
+						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
+					};
+					2CAE4D592316BE1200758043 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					2CAE4D622316BE1200758043 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = 2CAE4D0F23160B7000758043 /* Build configuration list for PBXProject "HeartBeatTrackerDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2CAE4D0B23160B7000758043;
+			productRefGroup = 2CAE4D1523160B7000758043 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2CAE4D1323160B7000758043 /* HeartBeatTrackerDemo */,
+				2CAE4D3023160C8600758043 /* TrackerKit */,
+				2CAE4D592316BE1200758043 /* TrackerIntent */,
+				2CAE4D622316BE1200758043 /* TrackerIntentUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2CAE4D1223160B7000758043 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CAE4D2423160B7100758043 /* LaunchScreen.storyboard in Resources */,
+				2CAE4D2123160B7100758043 /* Assets.xcassets in Resources */,
+				2CAE4D1F23160B7000758043 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAE4D2F23160C8600758043 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAE4D582316BE1200758043 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAE4D612316BE1200758043 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CAE4D6C2316BE1200758043 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2CAE4D1023160B7000758043 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CAE4D4E231653FA00758043 /* TrackerViewController.swift in Sources */,
+				2CAE4D4B2316462600758043 /* DevicesViewController.swift in Sources */,
+				2CAE4D1C23160B7000758043 /* RootViewController.swift in Sources */,
+				2CAE4D1823160B7000758043 /* AppDelegate.swift in Sources */,
+				2CAE4D4823163E8200758043 /* DevicesView.swift in Sources */,
+				2CAE4D542316B72700758043 /* TrakerIntents.intentdefinition in Sources */,
+				2CAE4D512316545900758043 /* TrackerView.swift in Sources */,
+				2CAE4D7F2316DACC00758043 /* BLEDevice.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAE4D2D23160C8600758043 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CAE4D442316304400758043 /* RootView.swift in Sources */,
+				2CAE4D3F23160DCD00758043 /* NSUserActivity+IntentData.swift in Sources */,
+				2CAE4D4923163E8200758043 /* DevicesView.swift in Sources */,
+				2CAE4D552316B72700758043 /* TrakerIntents.intentdefinition in Sources */,
+				2CAE4D522316545900758043 /* TrackerView.swift in Sources */,
+				2CAE4D802316DACC00758043 /* BLEDevice.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAE4D562316BE1200758043 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CAE4D5D2316BE1200758043 /* IntentHandler.swift in Sources */,
+				2CAE4D7B2316BF9200758043 /* TrakerIntents.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAE4D5F2316BE1200758043 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CAE4D692316BE1200758043 /* IntentViewController.swift in Sources */,
+				2CAE4D7C2316BF9300758043 /* TrakerIntents.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2CAE4D3723160C8600758043 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CAE4D3023160C8600758043 /* TrackerKit */;
+			targetProxy = 2CAE4D3623160C8600758043 /* PBXContainerItemProxy */;
+		};
+		2CAE4D6F2316BE1200758043 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CAE4D622316BE1200758043 /* TrackerIntentUI */;
+			targetProxy = 2CAE4D6E2316BE1200758043 /* PBXContainerItemProxy */;
+		};
+		2CAE4D722316BE1200758043 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CAE4D592316BE1200758043 /* TrackerIntent */;
+			targetProxy = 2CAE4D712316BE1200758043 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2CAE4D1D23160B7000758043 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CAE4D1E23160B7000758043 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2CAE4D2223160B7100758043 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CAE4D2323160B7100758043 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2CAE4D6A2316BE1200758043 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CAE4D6B2316BE1200758043 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2CAE4D2623160B7100758043 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2CAE4D2723160B7100758043 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2CAE4D2923160B7100758043 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HeartBeatTrackerDemo/HeartBeatTrackerDemo.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3PXB36C98;
+				INFOPLIST_FILE = HeartBeatTrackerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2CAE4D2A23160B7100758043 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HeartBeatTrackerDemo/HeartBeatTrackerDemo.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3PXB36C98;
+				INFOPLIST_FILE = HeartBeatTrackerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2CAE4D3B23160C8600758043 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = L3PXB36C98;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TrackerKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2CAE4D3C23160C8600758043 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = L3PXB36C98;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TrackerKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2CAE4D752316BE1200758043 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3PXB36C98;
+				INFOPLIST_FILE = TrackerIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2CAE4D762316BE1200758043 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3PXB36C98;
+				INFOPLIST_FILE = TrackerIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2CAE4D782316BE1200758043 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3PXB36C98;
+				INFOPLIST_FILE = TrackerIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2CAE4D792316BE1200758043 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3PXB36C98;
+				INFOPLIST_FILE = TrackerIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2CAE4D0F23160B7000758043 /* Build configuration list for PBXProject "HeartBeatTrackerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CAE4D2623160B7100758043 /* Debug */,
+				2CAE4D2723160B7100758043 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CAE4D2823160B7100758043 /* Build configuration list for PBXNativeTarget "HeartBeatTrackerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CAE4D2923160B7100758043 /* Debug */,
+				2CAE4D2A23160B7100758043 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CAE4D3A23160C8600758043 /* Build configuration list for PBXNativeTarget "TrackerKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CAE4D3B23160C8600758043 /* Debug */,
+				2CAE4D3C23160C8600758043 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CAE4D742316BE1200758043 /* Build configuration list for PBXNativeTarget "TrackerIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CAE4D752316BE1200758043 /* Debug */,
+				2CAE4D762316BE1200758043 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CAE4D772316BE1200758043 /* Build configuration list for PBXNativeTarget "TrackerIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CAE4D782316BE1200758043 /* Debug */,
+				2CAE4D792316BE1200758043 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2CAE4D0C23160B7000758043 /* Project object */;
+}
