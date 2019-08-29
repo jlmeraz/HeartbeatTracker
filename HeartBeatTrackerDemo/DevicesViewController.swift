@@ -58,7 +58,11 @@ extension DevicesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeviceCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = devices[indexPath.row].name
+        if devices[indexPath.row].peripheral.name != nil {
+            cell.textLabel?.text = devices[indexPath.row].peripheral.name
+        } else {
+            cell.textLabel?.text = devices[indexPath.row].rssiNumber.stringValue
+        }
         cell.textLabel?.textColor = .orange
         return cell
     }
@@ -87,10 +91,10 @@ extension DevicesViewController: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         let newDevice = BLEDevice(peripheral, adData: advertisementData, rssiNumber: RSSI)
-        for i in devices {
-            if i.name != newDevice.name {
-                self.devices.append(newDevice)
-            }
+        if !devices.contains(where: { (device) -> Bool in
+            device.peripheral == newDevice.peripheral
+        }) {
+            devices.append(newDevice)
         }
         DispatchQueue.main.async {
             self.devicesView.tableView.reloadData()

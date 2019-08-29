@@ -43,7 +43,7 @@ class TrackerViewController: UIViewController {
         shortcutButton.translatesAutoresizingMaskIntoConstraints = false
         trackerView.addSubview(shortcutButton)
         shortcutButton.centerXAnchor.constraint(equalTo: trackerView.centerXAnchor).isActive = true
-        shortcutButton.topAnchor.constraint(equalTo: trackerView.heartbeatLabel.bottomAnchor).isActive = true
+        shortcutButton.topAnchor.constraint(equalTo: trackerView.heartbeatLabel.bottomAnchor, constant: 20).isActive = true
         shortcutButton.addTarget(self, action: #selector(handleButtonTapped(sender:)), for: .touchUpInside)
     }
     
