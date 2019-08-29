@@ -7,19 +7,21 @@
 //
 
 import Foundation
+import CoreBluetooth
 
-struct BLEDevice {
+class BLEDevice {
     
-    let service: String
-    let characteristic: String
-    let peripheral: String
-    let name: String
-    
-    init(_ service: String,_ characteristic: String,_ peripheral: String,_ name: String ) {
-        self.service = service
-        self.characteristic = characteristic
+//    var service: [UUID]?
+//    var characteristic: [UUID]?
+    var advertisementData: [String:Any]
+    var rssiNumber: NSNumber
+    let peripheral: CBPeripheral
+    var name: String?
+//    print("peripheral: \(peripheral), AdKeys: \(advertisementData.keys), AdValues: \(advertisementData.values)")
+    init(_ peripheral: CBPeripheral, adData: [String:Any], rssiNumber: NSNumber) {
         self.peripheral = peripheral
-        self.name = name
+        self.advertisementData = adData
+        self.rssiNumber = rssiNumber
     }
     
 }

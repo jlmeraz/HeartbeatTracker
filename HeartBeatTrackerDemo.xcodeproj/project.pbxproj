@@ -648,7 +648,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sapientrazorfish.na.HeartBeatTrackerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -670,7 +670,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sapientrazorfish.na.HeartBeatTrackerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -696,7 +696,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sapientrazorfish.na.HeartBeatTrackerDemo.TrackerKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -725,7 +725,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sapientrazorfish.na.HeartBeatTrackerDemo.TrackerKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -746,7 +746,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerIntentUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sapientrazorfish.na.HeartBeatTrackerDemo.TrackerIntentUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -765,7 +765,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerIntentUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sapientrazorfish.na.HeartBeatTrackerDemo.TrackerIntentUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -784,7 +784,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerIntent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sapientrazorfish.na.HeartBeatTrackerDemo.TrackerIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -803,7 +803,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zaremesoj.HeartBeatTrackerDemo.TrackerIntent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sapientrazorfish.na.HeartBeatTrackerDemo.TrackerIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
