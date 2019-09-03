@@ -110,6 +110,10 @@ extension DevicesViewController: CBCentralManagerDelegate {
         }) && newDevice.peripheral.name != nil {
             devices.append(newDevice)
             reloadTableView()
+        } else {
+            for device in devices {
+                device.peripheral.readRSSI()
+            }
         }
     }
     
@@ -132,17 +136,6 @@ extension DevicesViewController: CBCentralManagerDelegate {
             print(error.localizedDescription)
         }
     }
-    
-//    func centralManager(_ central: CBCentralManager, connectionEventDidOccur event: CBConnectionEvent, for peripheral: CBPeripheral) {
-//        switch event {
-//        case .peerConnected:
-//            print("\(String(describing: peripheral.name)) connected")
-//        case .peerDisconnected:
-//            print("\(String(describing: peripheral.name)) disconnected")
-//        @unknown default:
-//            print("Unknown event")
-//        }
-//    }
         
 }
 
@@ -173,9 +166,8 @@ extension DevicesViewController: CBPeripheralDelegate {
         } else {
             print(RSSI)
         }
-        
     }
-    
+        
 }
 
 
