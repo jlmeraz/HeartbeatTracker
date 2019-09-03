@@ -47,6 +47,7 @@
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
+      intentQueryString = "My tracker"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
@@ -59,8 +60,14 @@
       launchAutomaticallySubstyle = "2">
       <RemoteRunnable
          runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.springboard"
-         RemotePath = "/Siri">
+         BundleIdentifier = "com.apple.notificationcenterui">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2CAE4D592316BE1200758043"
+            BuildableName = "TrackerIntent.appex"
+            BlueprintName = "TrackerIntent"
+            ReferencedContainer = "container:HeartBeatTrackerDemo.xcodeproj">
+         </BuildableReference>
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
@@ -74,6 +81,7 @@
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
+      intentQueryString = "My tracker"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"

@@ -25,7 +25,7 @@
 		2CAE4D512316545900758043 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D502316545900758043 /* TrackerView.swift */; };
 		2CAE4D522316545900758043 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D502316545900758043 /* TrackerView.swift */; };
 		2CAE4D542316B72700758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; };
-		2CAE4D552316B72700758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; };
+		2CAE4D552316B72700758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		2CAE4D5D2316BE1200758043 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D5C2316BE1200758043 /* IntentHandler.swift */; };
 		2CAE4D662316BE1200758043 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAE4D652316BE1200758043 /* IntentsUI.framework */; };
 		2CAE4D692316BE1200758043 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D682316BE1200758043 /* IntentViewController.swift */; };
