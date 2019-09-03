@@ -61,7 +61,7 @@ extension DevicesViewController: UITableViewDataSource {
         if devices[indexPath.row].peripheral.name != nil {
             cell.textLabel?.text = devices[indexPath.row].peripheral.name
         } else {
-            cell.textLabel?.text = devices[indexPath.row].rssiNumber.stringValue
+            cell.textLabel?.text = devices[indexPath.row].advertisementData.description
         }
         cell.textLabel?.textColor = .orange
         return cell
@@ -100,7 +100,7 @@ extension DevicesViewController: CBCentralManagerDelegate {
             self.devicesView.tableView.reloadData()
         }
     }
-    
+        
 }
 
 extension DevicesViewController: CBPeripheralManagerDelegate {

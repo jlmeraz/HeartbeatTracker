@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C3D0ED423184C1C0062271A /* BLEDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D0ED323184C1C0062271A /* BLEDeviceTableViewCell.swift */; };
 		2CAE4D1823160B7000758043 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D1723160B7000758043 /* AppDelegate.swift */; };
 		2CAE4D1C23160B7000758043 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D1B23160B7000758043 /* RootViewController.swift */; };
 		2CAE4D1F23160B7000758043 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAE4D1D23160B7000758043 /* Main.storyboard */; };
@@ -88,6 +89,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C3D0ED323184C1C0062271A /* BLEDeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDeviceTableViewCell.swift; sourceTree = "<group>"; };
 		2CAE4D1423160B7000758043 /* HeartBeatTrackerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartBeatTrackerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAE4D1723160B7000758043 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CAE4D1B23160B7000758043 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				2CAE4D432316304400758043 /* RootView.swift */,
 				2CAE4D4723163E8200758043 /* DevicesView.swift */,
 				2CAE4D502316545900758043 /* TrackerView.swift */,
+				2C3D0ED323184C1C0062271A /* BLEDeviceTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				2CAE4D1823160B7000758043 /* AppDelegate.swift in Sources */,
 				2CAE4D4823163E8200758043 /* DevicesView.swift in Sources */,
 				2CAE4D542316B72700758043 /* TrakerIntents.intentdefinition in Sources */,
+				2C3D0ED423184C1C0062271A /* BLEDeviceTableViewCell.swift in Sources */,
 				2CAE4D512316545900758043 /* TrackerView.swift in Sources */,
 				2CAE4D7F2316DACC00758043 /* BLEDevice.swift in Sources */,
 			);

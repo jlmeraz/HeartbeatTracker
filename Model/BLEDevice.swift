@@ -16,7 +16,6 @@ class BLEDevice {
     var advertisementData: [String:Any]
     var rssiNumber: NSNumber
     let peripheral: CBPeripheral
-    var name: String?
 //    print("peripheral: \(peripheral), AdKeys: \(advertisementData.keys), AdValues: \(advertisementData.values)")
     init(_ peripheral: CBPeripheral, adData: [String:Any], rssiNumber: NSNumber) {
         self.peripheral = peripheral
