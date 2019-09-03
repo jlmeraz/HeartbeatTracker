@@ -13,7 +13,9 @@ class DevicesViewController: UIViewController {
     
     let devicesView = DevicesView()
     var devices: [BLEDevice] = []
+    var connectedDevice: CBPeripheral?
     var centralManager: CBCentralManager!
+    var peripheralManager: CBPeripheralManager!
     
     override func loadView() {
         view = devicesView
@@ -23,14 +25,14 @@ class DevicesViewController: UIViewController {
         super.viewDidLoad()
         title = "My Devices"
         definesPresentationContext = true
-        centralManager = CBCentralManager()
-        centralManager.delegate = self
-        createDevices()
+        centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey:true])
+        peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: [:])
         setupTableView()
     }
     
-    func createDevices() {
-        
+    deinit {
+        guard let peripheral = connectedDevice else { return }
+        centralManager.cancelPeripheralConnection(peripheral)
     }
     
     func setupTableView() {
@@ -39,12 +41,31 @@ class DevicesViewController: UIViewController {
         devicesView.tableView.dataSource = self
     }
     
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.devicesView.tableView.reloadData()
+        }
+    }
+    
+//    func getIndexForPeripheral(peripheral: CBPeripheral) -> Int {
+//        for (i,c) in devices.enumerated() {
+//            if c.peripheral == peripheral {
+//                return i
+//            }
+//        }
+//        return -1
+//    }
+    
 }
 
 extension DevicesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let trackerViewController = TrackerViewController(nil)
+        connectedDevice = devices[indexPath.row].peripheral
+        guard let hookedDevice = connectedDevice else { return }
+        centralManager.connect(hookedDevice, options: [CBConnectPeripheralOptionNotifyOnConnectionKey:true,CBConnectPeripheralOptionNotifyOnDisconnectionKey: true
+            ,CBConnectPeripheralOptionNotifyOnNotificationKey: true])
+        let trackerViewController = TrackerViewController(nibName: nil, bundle: nil)
         navigationController?.pushViewController(trackerViewController, animated: true)
     }
     
@@ -60,9 +81,8 @@ extension DevicesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeviceCell", for: indexPath) as UITableViewCell
         if devices[indexPath.row].peripheral.name != nil {
             cell.textLabel?.text = devices[indexPath.row].peripheral.name
-        } else {
-            cell.textLabel?.text = devices[indexPath.row].advertisementData.description
         }
+        
         cell.textLabel?.textColor = .orange
         return cell
     }
@@ -78,14 +98,16 @@ extension DevicesViewController: CBCentralManagerDelegate {
         case .poweredOn:
             print("On")
             central.scanForPeripherals(withServices: nil, options: [:])
-        case .unknown:
-            print("Unknown")
         case .resetting:
             print("Resetting")
         case .unauthorized:
             print("Unauthorized")
         case .unsupported:
             print("Unsupported")
+        case .unknown:
+            print("Unknown")
+        @unknown default:
+            print("Unknown")
         }
     }
     
@@ -93,20 +115,66 @@ extension DevicesViewController: CBCentralManagerDelegate {
         let newDevice = BLEDevice(peripheral, adData: advertisementData, rssiNumber: RSSI)
         if !devices.contains(where: { (device) -> Bool in
             device.peripheral == newDevice.peripheral
-        }) {
+        }) && newDevice.peripheral.name != nil {
             devices.append(newDevice)
-        }
-        DispatchQueue.main.async {
-            self.devicesView.tableView.reloadData()
+            reloadTableView()
         }
     }
+    
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        print("Connection to \(String(describing: peripheral.name)) Succesful")
+    }
+    
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+        } else {
+            print("\(String(describing: peripheral.name)) Disconnected")
+        }
+    }
+    
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        if let error = error {
+            print("failed to connect to \(String(describing: peripheral.name))")
+            print(error.localizedDescription)
+        }
+    }
+    
+//    func centralManager(_ central: CBCentralManager, connectionEventDidOccur event: CBConnectionEvent, for peripheral: CBPeripheral) {
+//        switch event {
+//        case .peerConnected:
+//            print("\(String(describing: peripheral.name)) connected")
+//        case .peerDisconnected:
+//            print("\(String(describing: peripheral.name)) disconnected")
+//        @unknown default:
+//            print("Unknown event")
+//        }
+//    }
         
 }
 
 extension DevicesViewController: CBPeripheralManagerDelegate {
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
-        
+        switch peripheral.state {
+        case .poweredOff:
+            print("peripheral is OFF")
+        case .poweredOn:
+            print("peripheral is ON")
+        case .resetting:
+            print("peripheral is Resetting")
+        case .unauthorized:
+            print("peripheral denied access")
+        case .unsupported:
+            print("Unsupported")
+        default:
+            print("Default !")
+        }
+        print(peripheral.state)
     }
     
+    
+    
 }
+
+

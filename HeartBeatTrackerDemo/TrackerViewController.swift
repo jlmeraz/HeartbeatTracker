@@ -9,21 +9,10 @@
 import UIKit
 import Intents
 import IntentsUI
-import os.log
 
 class TrackerViewController: UIViewController {
     
-    private let activity: NSUserActivity?
     let trackerView = TrackerView()
-    
-    init(_ activity: NSUserActivity?) {
-        self.activity = activity
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func loadView() {
         view = trackerView
@@ -58,8 +47,7 @@ class TrackerViewController: UIViewController {
     }
     
     func donateIntent() {
-        INPreferences.requestSiriAuthorization { [weak self] (auth) in
-            guard let strongSelf = self else { return }
+        INPreferences.requestSiriAuthorization { (auth) in
             guard auth == INSiriAuthorizationStatus.authorized else { return }
             let intent = TrackerIntent()
             intent.device = "My device"
@@ -94,7 +82,7 @@ extension TrackerViewController: INUIAddVoiceShortcutViewControllerDelegate {
     
     func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
         if let error = error as NSError? {
-            os_log("Error adding voice shortcut: %@", log: OSLog.default, type: .error, error)
+            print(error.localizedDescription)
         }
         
         controller.dismiss(animated: true, completion: nil)
@@ -110,7 +98,7 @@ extension TrackerViewController: INUIEditVoiceShortcutViewControllerDelegate {
     
     func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
         if let error = error as NSError? {
-            os_log("Error adding voice shortcut: %@", log: OSLog.default, type: .error, error)
+            print(error.localizedDescription)
         }
         
         controller.dismiss(animated: true, completion: nil)

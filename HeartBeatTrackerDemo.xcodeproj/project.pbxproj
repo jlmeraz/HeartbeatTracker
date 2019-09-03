@@ -16,7 +16,6 @@
 		2CAE4D3523160C8600758043 /* TrackerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CAE4D3323160C8600758043 /* TrackerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CAE4D3823160C8600758043 /* TrackerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAE4D3123160C8600758043 /* TrackerKit.framework */; };
 		2CAE4D3923160C8600758043 /* TrackerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAE4D3123160C8600758043 /* TrackerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2CAE4D3F23160DCD00758043 /* NSUserActivity+IntentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D3E23160DCD00758043 /* NSUserActivity+IntentData.swift */; };
 		2CAE4D442316304400758043 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D432316304400758043 /* RootView.swift */; };
 		2CAE4D4823163E8200758043 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D4723163E8200758043 /* DevicesView.swift */; };
 		2CAE4D4923163E8200758043 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D4723163E8200758043 /* DevicesView.swift */; };
@@ -24,7 +23,7 @@
 		2CAE4D4E231653FA00758043 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D4D231653FA00758043 /* TrackerViewController.swift */; };
 		2CAE4D512316545900758043 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D502316545900758043 /* TrackerView.swift */; };
 		2CAE4D522316545900758043 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D502316545900758043 /* TrackerView.swift */; };
-		2CAE4D542316B72700758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; };
+		2CAE4D542316B72700758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
 		2CAE4D552316B72700758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		2CAE4D5D2316BE1200758043 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D5C2316BE1200758043 /* IntentHandler.swift */; };
 		2CAE4D662316BE1200758043 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAE4D652316BE1200758043 /* IntentsUI.framework */; };
@@ -36,6 +35,8 @@
 		2CAE4D7C2316BF9300758043 /* TrakerIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */; };
 		2CAE4D7F2316DACC00758043 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D7E2316DACC00758043 /* BLEDevice.swift */; };
 		2CAE4D802316DACC00758043 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D7E2316DACC00758043 /* BLEDevice.swift */; };
+		2CC787FA231E576B00FA476C /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787F9231E576B00FA476C /* BLEManager.swift */; };
+		2CC787FD231E58FD00FA476C /* BLEDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787FC231E58FD00FA476C /* BLEDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +101,6 @@
 		2CAE4D3123160C8600758043 /* TrackerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrackerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAE4D3323160C8600758043 /* TrackerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrackerKit.h; sourceTree = "<group>"; };
 		2CAE4D3423160C8600758043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2CAE4D3E23160DCD00758043 /* NSUserActivity+IntentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSUserActivity+IntentData.swift"; sourceTree = "<group>"; };
 		2CAE4D432316304400758043 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		2CAE4D4723163E8200758043 /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
 		2CAE4D4A2316462600758043 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +117,8 @@
 		2CAE4D6D2316BE1200758043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CAE4D7E2316DACC00758043 /* BLEDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDevice.swift; sourceTree = "<group>"; };
 		2CAE4D8123170AC400758043 /* HeartBeatTrackerDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeartBeatTrackerDemo.entitlements; sourceTree = "<group>"; };
+		2CC787F9231E576B00FA476C /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		2CC787FC231E58FD00FA476C /* BLEDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,8 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */,
+				2CC787F8231E573F00FA476C /* BLEManager */,
+				2CC787FB231E58DA00FA476C /* BLEDatasource */,
 				2CAE4D4023162EAF00758043 /* View */,
-				2CAE4D2B23160C2300758043 /* SharedFramework */,
 				2CAE4D7D2316DA3000758043 /* Model */,
 				2CAE4D1623160B7000758043 /* HeartBeatTrackerDemo */,
 				2CAE4D3223160C8600758043 /* TrackerKit */,
@@ -194,14 +197,6 @@
 				2CAE4D2523160B7100758043 /* Info.plist */,
 			);
 			path = HeartBeatTrackerDemo;
-			sourceTree = "<group>";
-		};
-		2CAE4D2B23160C2300758043 /* SharedFramework */ = {
-			isa = PBXGroup;
-			children = (
-				2CAE4D3E23160DCD00758043 /* NSUserActivity+IntentData.swift */,
-			);
-			path = SharedFramework;
 			sourceTree = "<group>";
 		};
 		2CAE4D3223160C8600758043 /* TrackerKit */ = {
@@ -257,6 +252,22 @@
 				2CAE4D7E2316DACC00758043 /* BLEDevice.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2CC787F8231E573F00FA476C /* BLEManager */ = {
+			isa = PBXGroup;
+			children = (
+				2CC787F9231E576B00FA476C /* BLEManager.swift */,
+			);
+			path = BLEManager;
+			sourceTree = "<group>";
+		};
+		2CC787FB231E58DA00FA476C /* BLEDatasource */ = {
+			isa = PBXGroup;
+			children = (
+				2CC787FC231E58FD00FA476C /* BLEDatasource.swift */,
+			);
+			path = BLEDatasource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,8 +449,10 @@
 				2CAE4D1C23160B7000758043 /* RootViewController.swift in Sources */,
 				2CAE4D1823160B7000758043 /* AppDelegate.swift in Sources */,
 				2CAE4D4823163E8200758043 /* DevicesView.swift in Sources */,
+				2CC787FD231E58FD00FA476C /* BLEDatasource.swift in Sources */,
 				2CAE4D542316B72700758043 /* TrakerIntents.intentdefinition in Sources */,
 				2C3D0ED423184C1C0062271A /* BLEDeviceTableViewCell.swift in Sources */,
+				2CC787FA231E576B00FA476C /* BLEManager.swift in Sources */,
 				2CAE4D512316545900758043 /* TrackerView.swift in Sources */,
 				2CAE4D7F2316DACC00758043 /* BLEDevice.swift in Sources */,
 			);
@@ -450,7 +463,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CAE4D442316304400758043 /* RootView.swift in Sources */,
-				2CAE4D3F23160DCD00758043 /* NSUserActivity+IntentData.swift in Sources */,
 				2CAE4D4923163E8200758043 /* DevicesView.swift in Sources */,
 				2CAE4D552316B72700758043 /* TrakerIntents.intentdefinition in Sources */,
 				2CAE4D522316545900758043 /* TrackerView.swift in Sources */,
@@ -685,6 +697,7 @@
 		2CAE4D3B23160C8600758043 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -714,6 +727,7 @@
 		2CAE4D3C23160C8600758043 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

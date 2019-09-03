@@ -11,12 +11,9 @@ import CoreBluetooth
 
 class BLEDevice {
     
-//    var service: [UUID]?
-//    var characteristic: [UUID]?
     var advertisementData: [String:Any]
     var rssiNumber: NSNumber
     let peripheral: CBPeripheral
-//    print("peripheral: \(peripheral), AdKeys: \(advertisementData.keys), AdValues: \(advertisementData.values)")
     init(_ peripheral: CBPeripheral, adData: [String:Any], rssiNumber: NSNumber) {
         self.peripheral = peripheral
         self.advertisementData = adData
