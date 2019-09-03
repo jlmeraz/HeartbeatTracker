@@ -37,6 +37,7 @@
 		2CAE4D802316DACC00758043 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D7E2316DACC00758043 /* BLEDevice.swift */; };
 		2CC787FA231E576B00FA476C /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787F9231E576B00FA476C /* BLEManager.swift */; };
 		2CC787FD231E58FD00FA476C /* BLEDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787FC231E58FD00FA476C /* BLEDatasource.swift */; };
+		2CC787FF231EF44000FA476C /* BLEProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787FE231EF44000FA476C /* BLEProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		2CAE4D8123170AC400758043 /* HeartBeatTrackerDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeartBeatTrackerDemo.entitlements; sourceTree = "<group>"; };
 		2CC787F9231E576B00FA476C /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		2CC787FC231E58FD00FA476C /* BLEDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDatasource.swift; sourceTree = "<group>"; };
+		2CC787FE231EF44000FA476C /* BLEProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				2CAE4D7E2316DACC00758043 /* BLEDevice.swift */,
+				2CC787FE231EF44000FA476C /* BLEProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				2CAE4D4823163E8200758043 /* DevicesView.swift in Sources */,
 				2CC787FD231E58FD00FA476C /* BLEDatasource.swift in Sources */,
 				2CAE4D542316B72700758043 /* TrakerIntents.intentdefinition in Sources */,
+				2CC787FF231EF44000FA476C /* BLEProfile.swift in Sources */,
 				2C3D0ED423184C1C0062271A /* BLEDeviceTableViewCell.swift in Sources */,
 				2CC787FA231E576B00FA476C /* BLEManager.swift in Sources */,
 				2CAE4D512316545900758043 /* TrackerView.swift in Sources */,

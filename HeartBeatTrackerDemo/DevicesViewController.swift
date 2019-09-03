@@ -13,9 +13,9 @@ class DevicesViewController: UIViewController {
     
     let devicesView = DevicesView()
     var devices: [BLEDevice] = []
-    var connectedDevice: CBPeripheral?
     var centralManager: CBCentralManager!
-    var peripheralManager: CBPeripheralManager!
+    var connectedPeripheral: CBPeripheral?
+    
     
     override func loadView() {
         view = devicesView
@@ -26,13 +26,13 @@ class DevicesViewController: UIViewController {
         title = "My Devices"
         definesPresentationContext = true
         centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey:true])
-        peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: [:])
+        
         setupTableView()
     }
     
     deinit {
-        guard let peripheral = connectedDevice else { return }
-        centralManager.cancelPeripheralConnection(peripheral)
+        guard let connectedPeripheral = connectedPeripheral else { return }
+        centralManager.cancelPeripheralConnection(connectedPeripheral)
     }
     
     func setupTableView() {
@@ -47,26 +47,18 @@ class DevicesViewController: UIViewController {
         }
     }
     
-//    func getIndexForPeripheral(peripheral: CBPeripheral) -> Int {
-//        for (i,c) in devices.enumerated() {
-//            if c.peripheral == peripheral {
-//                return i
-//            }
-//        }
-//        return -1
-//    }
-    
 }
 
 extension DevicesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        connectedDevice = devices[indexPath.row].peripheral
-        guard let hookedDevice = connectedDevice else { return }
-        centralManager.connect(hookedDevice, options: [CBConnectPeripheralOptionNotifyOnConnectionKey:true,CBConnectPeripheralOptionNotifyOnDisconnectionKey: true
+        connectedPeripheral = devices[indexPath.row].peripheral
+        connectedPeripheral?.delegate = self
+        guard let connectedPeripheral = connectedPeripheral else { return }
+        centralManager.connect(connectedPeripheral, options: [CBConnectPeripheralOptionNotifyOnConnectionKey:true,CBConnectPeripheralOptionNotifyOnDisconnectionKey: true
             ,CBConnectPeripheralOptionNotifyOnNotificationKey: true])
-        let trackerViewController = TrackerViewController(nibName: nil, bundle: nil)
-        navigationController?.pushViewController(trackerViewController, animated: true)
+//        let trackerViewController = TrackerViewController(nibName: nil, bundle: nil)
+//        navigationController?.pushViewController(trackerViewController, animated: true)
     }
     
 }
@@ -123,6 +115,7 @@ extension DevicesViewController: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("Connection to \(String(describing: peripheral.name)) Succesful")
+        connectedPeripheral?.discoverServices(nil)
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
@@ -153,27 +146,35 @@ extension DevicesViewController: CBCentralManagerDelegate {
         
 }
 
-extension DevicesViewController: CBPeripheralManagerDelegate {
+extension DevicesViewController: CBPeripheralDelegate {
     
-    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
-        switch peripheral.state {
-        case .poweredOff:
-            print("peripheral is OFF")
-        case .poweredOn:
-            print("peripheral is ON")
-        case .resetting:
-            print("peripheral is Resetting")
-        case .unauthorized:
-            print("peripheral denied access")
-        case .unsupported:
-            print("Unsupported")
-        default:
-            print("Default !")
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+        } else if let services = peripheral.services {
+            for i in services {
+                print(i)
+                peripheral.discoverCharacteristics(nil, for: i)
+            }
         }
-        print(peripheral.state)
     }
     
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+        } else if let characteristics = service.characteristics {
+            print(characteristics)
+        }
+    }
     
+    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+        } else {
+            print(RSSI)
+        }
+        
+    }
     
 }
 
