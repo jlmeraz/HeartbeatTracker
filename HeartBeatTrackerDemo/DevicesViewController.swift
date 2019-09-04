@@ -15,7 +15,7 @@ class DevicesViewController: UIViewController {
     var devices: [BLEDevice] = []
     var centralManager: CBCentralManager!
     var connectedPeripheral: CBPeripheral?
-    
+    var bleDevice: BLEModel?
     
     override func loadView() {
         view = devicesView
@@ -57,7 +57,8 @@ extension DevicesViewController: UITableViewDelegate {
         guard let connectedPeripheral = connectedPeripheral else { return }
         centralManager.connect(connectedPeripheral, options: [CBConnectPeripheralOptionNotifyOnConnectionKey:true,CBConnectPeripheralOptionNotifyOnDisconnectionKey: true
             ,CBConnectPeripheralOptionNotifyOnNotificationKey: true])
-//        let trackerViewController = TrackerViewController(nibName: nil, bundle: nil)
+        let trackerViewController = TrackerViewController(nibName: nil, bundle: nil)
+        present(trackerViewController, animated: true, completion: nil)
 //        navigationController?.pushViewController(trackerViewController, animated: true)
     }
     
@@ -110,15 +111,13 @@ extension DevicesViewController: CBCentralManagerDelegate {
         }) && newDevice.peripheral.name != nil {
             devices.append(newDevice)
             reloadTableView()
-        } else {
-            for device in devices {
-                device.peripheral.readRSSI()
-            }
         }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("Connection to \(String(describing: peripheral.name)) Succesful")
+        connectedPeripheral?.readRSSI()
+        bleDevice?.peripheral = peripheral
         connectedPeripheral?.discoverServices(nil)
     }
     
@@ -126,6 +125,7 @@ extension DevicesViewController: CBCentralManagerDelegate {
         if let error = error {
             print(error.localizedDescription)
         } else {
+            bleDevice?.peripheral = nil
             print("\(String(describing: peripheral.name)) Disconnected")
         }
     }
@@ -145,8 +145,9 @@ extension DevicesViewController: CBPeripheralDelegate {
         if let error = error {
             print(error.localizedDescription)
         } else if let services = peripheral.services {
+            bleDevice?.services = services
             for i in services {
-                print(i)
+                //print(i)
                 peripheral.discoverCharacteristics(nil, for: i)
             }
         }
@@ -156,8 +157,24 @@ extension DevicesViewController: CBPeripheralDelegate {
         if let error = error {
             print(error.localizedDescription)
         } else if let characteristics = service.characteristics {
-            print(characteristics)
+            bleDevice?.characteristics = characteristics
+            for characteristic in characteristics {
+                peripheral.setNotifyValue(true, for: characteristic)
+                //print(characteristic.value ?? "N/A")
+            }
         }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+        } else if let value = characteristic.value {
+            print("Characteristic: \(characteristic) value: \(value)")
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {

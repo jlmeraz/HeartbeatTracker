@@ -38,6 +38,7 @@
 		2CC787FA231E576B00FA476C /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787F9231E576B00FA476C /* BLEManager.swift */; };
 		2CC787FD231E58FD00FA476C /* BLEDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787FC231E58FD00FA476C /* BLEDatasource.swift */; };
 		2CC787FF231EF44000FA476C /* BLEProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787FE231EF44000FA476C /* BLEProfile.swift */; };
+		2CC78801231FF54C00FA476C /* BLEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC78800231FF54C00FA476C /* BLEModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		2CC787F9231E576B00FA476C /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		2CC787FC231E58FD00FA476C /* BLEDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDatasource.swift; sourceTree = "<group>"; };
 		2CC787FE231EF44000FA476C /* BLEProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEProfile.swift; sourceTree = "<group>"; };
+		2CC78800231FF54C00FA476C /* BLEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 			children = (
 				2CAE4D7E2316DACC00758043 /* BLEDevice.swift */,
 				2CC787FE231EF44000FA476C /* BLEProfile.swift */,
+				2CC78800231FF54C00FA476C /* BLEModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 			files = (
 				2CAE4D4E231653FA00758043 /* TrackerViewController.swift in Sources */,
 				2CAE4D4B2316462600758043 /* DevicesViewController.swift in Sources */,
+				2CC78801231FF54C00FA476C /* BLEModel.swift in Sources */,
 				2CAE4D1C23160B7000758043 /* RootViewController.swift in Sources */,
 				2CAE4D1823160B7000758043 /* AppDelegate.swift in Sources */,
 				2CAE4D4823163E8200758043 /* DevicesView.swift in Sources */,
