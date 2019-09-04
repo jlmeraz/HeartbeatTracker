@@ -10,6 +10,12 @@ import UIKit
 import Intents
 import IntentsUI
 
+protocol UpdateValueForHeartRateLabelDelegate: AnyObject {
+    
+    func didUpdateHeartRateValue(value: String)
+    
+}
+
 class TrackerViewController: UIViewController {
     
     let trackerView = TrackerView()
@@ -114,3 +120,10 @@ extension TrackerViewController: INUIEditVoiceShortcutViewControllerDelegate {
     
 }
 
+extension TrackerViewController: UpdateValueForHeartRateLabelDelegate {
+    
+    func didUpdateHeartRateValue(value: String) {
+        trackerView.heartbeatLabel.text = value
+    }
+    
+}

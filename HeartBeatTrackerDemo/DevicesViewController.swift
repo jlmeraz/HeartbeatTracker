@@ -16,6 +16,8 @@ class DevicesViewController: UIViewController {
     var centralManager: CBCentralManager!
     var connectedPeripheral: CBPeripheral?
     var bleDevice: BLEModel?
+    var trackerViewController: TrackerViewController!
+    weak var updateLabelDelegate: UpdateValueForHeartRateLabelDelegate?
     
     override func loadView() {
         view = devicesView
@@ -57,8 +59,11 @@ extension DevicesViewController: UITableViewDelegate {
         guard let connectedPeripheral = connectedPeripheral else { return }
         centralManager.connect(connectedPeripheral, options: [CBConnectPeripheralOptionNotifyOnConnectionKey:true,CBConnectPeripheralOptionNotifyOnDisconnectionKey: true
             ,CBConnectPeripheralOptionNotifyOnNotificationKey: true])
-        let trackerViewController = TrackerViewController(nibName: nil, bundle: nil)
-        present(trackerViewController, animated: true, completion: nil)
+        trackerViewController = TrackerViewController(nibName: nil, bundle: nil)
+        present(trackerViewController, animated: true) {
+            self.updateLabelDelegate = self.trackerViewController
+        }
+//        present(trackerViewController, animated: true, completion: nil)
 //        navigationController?.pushViewController(trackerViewController, animated: true)
     }
     
@@ -168,8 +173,18 @@ extension DevicesViewController: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let error = error {
             print(error.localizedDescription)
-        } else if let value = characteristic.value {
-            print("Characteristic: \(characteristic) value: \(value)")
+        } else if let dataValue = characteristic.value {
+            let byteArray = Array(dataValue)
+            //print("Characteristic: \(characteristic), Value: \(byteArray)")
+            var someNumber: Int = 0
+            for byte in byteArray {
+                someNumber += Int(byte)
+            }
+            let heartRate = String(someNumber/20)
+            updateLabelDelegate?.didUpdateHeartRateValue(value: heartRate)
+//            guard let stringInt = String(data: dataValue, encoding: .utf8) else { print("error encoding string"); return }
+//            guard let intValue = Int(stringInt) else { print("error encoding int"); return }
+//            print("Characteristic: \(characteristic) value: \(intValue)")
         }
     }
     
