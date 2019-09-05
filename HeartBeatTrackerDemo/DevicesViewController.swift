@@ -63,8 +63,6 @@ extension DevicesViewController: UITableViewDelegate {
         present(trackerViewController, animated: true) {
             self.updateLabelDelegate = self.trackerViewController
         }
-//        present(trackerViewController, animated: true, completion: nil)
-//        navigationController?.pushViewController(trackerViewController, animated: true)
     }
     
 }
@@ -165,7 +163,6 @@ extension DevicesViewController: CBPeripheralDelegate {
             bleDevice?.characteristics = characteristics
             for characteristic in characteristics {
                 peripheral.setNotifyValue(true, for: characteristic)
-                //print(characteristic.value ?? "N/A")
             }
         }
     }
@@ -175,16 +172,12 @@ extension DevicesViewController: CBPeripheralDelegate {
             print(error.localizedDescription)
         } else if let dataValue = characteristic.value {
             let byteArray = Array(dataValue)
-            //print("Characteristic: \(characteristic), Value: \(byteArray)")
             var someNumber: Int = 0
             for byte in byteArray {
                 someNumber += Int(byte)
             }
-            let heartRate = String(someNumber/20)
+            let heartRate = String(someNumber)
             updateLabelDelegate?.didUpdateHeartRateValue(value: heartRate)
-//            guard let stringInt = String(data: dataValue, encoding: .utf8) else { print("error encoding string"); return }
-//            guard let intValue = Int(stringInt) else { print("error encoding int"); return }
-//            print("Characteristic: \(characteristic) value: \(intValue)")
         }
     }
     

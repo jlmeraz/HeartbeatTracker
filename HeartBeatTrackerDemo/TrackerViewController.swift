@@ -44,7 +44,7 @@ class TrackerViewController: UIViewController {
     
     @objc func handleButtonTapped(sender: UIButton) {
         let trackerIntent = TrackerIntent()
-        trackerIntent.suggestedInvocationPhrase = "My tracker"
+        trackerIntent.suggestedInvocationPhrase = "Monitor my heart rate"
         guard let shortcut = INShortcut(intent: trackerIntent) else { return }
         let uiintent = INUIAddVoiceShortcutViewController(shortcut: shortcut)
         uiintent.delegate = self
@@ -56,8 +56,8 @@ class TrackerViewController: UIViewController {
         INPreferences.requestSiriAuthorization { (auth) in
             guard auth == INSiriAuthorizationStatus.authorized else { return }
             let intent = TrackerIntent()
-            intent.device = "My device"
-            intent.suggestedInvocationPhrase = "Track my heart rate"
+            intent.device = "Project Zero"
+            intent.suggestedInvocationPhrase = "Monitor my heart rate"
             let interaction = INInteraction(intent: intent, response: nil)
             interaction.donate(completion: { (error) in
                 if let error = error {
