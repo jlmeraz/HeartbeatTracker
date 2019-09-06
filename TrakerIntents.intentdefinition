@@ -167,8 +167,6 @@
 			<string>giibIB</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<true/>
 			<key>INIntentVerb</key>
 			<string>View</string>
 		</dict>
