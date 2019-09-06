@@ -31,20 +31,13 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    static let buttonServiceUUID = CBUUID(string: "f0001120-0451-4000-b000-000000000000")
-    static let b1CharUUID = CBUUID(string: "f0001121-0451-4000-b000-000000000000")
-    static let b2CharUUID = CBUUID(string: "f0001122-0451-4000-b000-000000000000")
-
-    static let services: [CBUUID] = [buttonServiceUUID]
-    static let bChars: [CBUUID] = [b1CharUUID,b2CharUUID]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         constraintLabel()
         centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey:true])
-//        connectedPeripheral?.delegate = self
-        centralManager.scanForPeripherals(withServices: IntentViewController.services, options: nil)
+        //centralManager.scanForPeripherals(withServices: nil, options: nil)
 //        guard let connectedPeripheral = connectedPeripheral else { return }
 //        centralManager.connect(connectedPeripheral, options: [CBConnectPeripheralOptionNotifyOnConnectionKey:true,CBConnectPeripheralOptionNotifyOnDisconnectionKey: true
 //            ,CBConnectPeripheralOptionNotifyOnNotificationKey: true])
@@ -101,12 +94,12 @@ extension IntentViewController: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        print(peripheral.name ?? "n/a")
-        DispatchQueue.main.async {
-            self.heartbeatLabel.text = peripheral.name
-        }
+//        print(peripheral.name ?? "n/a")
+//        DispatchQueue.main.async {
+//            self.heartbeatLabel.text = RSSI.stringValue
+//        }
         let peripheralName = peripheral.name
-        guard peripheralName == "Project Zero" else { return }
+        guard peripheralName == "ID115Plus HR" else { return }
             connectedPeripheral = peripheral
             connectedPeripheral?.delegate = self
             centralManager.connect(connectedPeripheral!, options: [:])
@@ -117,7 +110,7 @@ extension IntentViewController: CBCentralManagerDelegate {
         connectedPeripheral?.readRSSI()
         print("Connected to Project Zero")
 //        centralManager.stopScan()
-        connectedPeripheral?.discoverServices(IntentViewController.services)
+        connectedPeripheral?.discoverServices(nil)
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
@@ -145,7 +138,7 @@ extension IntentViewController: CBPeripheralDelegate {
         } else if let services = peripheral.services {
             for i in services {
                 //print(i)
-                peripheral.discoverCharacteristics(IntentViewController.bChars, for: i)
+                peripheral.discoverCharacteristics(nil, for: i)
             }
         }
     }
