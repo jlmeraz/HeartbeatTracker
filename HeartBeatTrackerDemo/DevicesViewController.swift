@@ -13,11 +13,8 @@ class DevicesViewController: UIViewController {
     
     let devicesView = DevicesView()
     var devices: [BLEDevice] = []
-    var centralManager: CBCentralManager!
-    var connectedPeripheral: CBPeripheral?
     var bleDevice: BLEModel?
     var trackerViewController: TrackerViewController!
-    weak var updateLabelDelegate: UpdateValueForHeartRateLabelDelegate?
     
     override func loadView() {
         view = devicesView
@@ -27,14 +24,12 @@ class DevicesViewController: UIViewController {
         super.viewDidLoad()
         title = "My Devices"
         definesPresentationContext = true
-        centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey:true])
-        
-        setupTableView()
+        BLEManager.sharedBLEManager.startScanningForPeripherals()
     }
     
     deinit {
-        guard let connectedPeripheral = connectedPeripheral else { return }
-        centralManager.cancelPeripheralConnection(connectedPeripheral)
+        BLEManager.sharedBLEManager.stopScanningForPeripherals()
+        print("DevicesViewController deinitialized !")
     }
     
     func setupTableView() {
@@ -54,15 +49,15 @@ class DevicesViewController: UIViewController {
 extension DevicesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        connectedPeripheral = devices[indexPath.row].peripheral
-        connectedPeripheral?.delegate = self
-        guard let connectedPeripheral = connectedPeripheral else { return }
-        centralManager.connect(connectedPeripheral, options: [CBConnectPeripheralOptionNotifyOnConnectionKey:true,CBConnectPeripheralOptionNotifyOnDisconnectionKey: true
-            ,CBConnectPeripheralOptionNotifyOnNotificationKey: true])
-        trackerViewController = TrackerViewController(nibName: nil, bundle: nil)
-        present(trackerViewController, animated: true) {
-            self.updateLabelDelegate = self.trackerViewController
-        }
+////        connectedPeripheral = devices[indexPath.row].peripheral
+////        connectedPeripheral?.delegate = self
+//        guard let connectedPeripheral = connectedPeripheral else { return }
+//        centralManager.connect(connectedPeripheral, options: [CBConnectPeripheralOptionNotifyOnConnectionKey:true,CBConnectPeripheralOptionNotifyOnDisconnectionKey: true
+//            ,CBConnectPeripheralOptionNotifyOnNotificationKey: true])
+//        trackerViewController = TrackerViewController(nibName: nil, bundle: nil)
+//        present(trackerViewController, animated: true) {
+//            self.updateLabelDelegate = self.trackerViewController
+//        }
     }
     
 }
@@ -84,115 +79,3 @@ extension DevicesViewController: UITableViewDataSource {
     }
     
 }
-
-extension DevicesViewController: CBCentralManagerDelegate {
-    
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        switch central.state {
-        case .poweredOff:
-            print("Off")
-        case .poweredOn:
-            print("On")
-            central.scanForPeripherals(withServices: nil, options: [:])
-        case .resetting:
-            print("Resetting")
-        case .unauthorized:
-            print("Unauthorized")
-        case .unsupported:
-            print("Unsupported")
-        case .unknown:
-            print("Unknown")
-        @unknown default:
-            print("Unknown")
-        }
-    }
-    
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        let newDevice = BLEDevice(peripheral, adData: advertisementData, rssiNumber: RSSI)
-        if !devices.contains(where: { (device) -> Bool in
-            device.peripheral == newDevice.peripheral
-        }) && newDevice.peripheral.name != nil {
-            devices.append(newDevice)
-            reloadTableView()
-        }
-    }
-    
-    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("Connection to \(String(describing: peripheral.name)) Succesful")
-        connectedPeripheral?.readRSSI()
-        bleDevice?.peripheral = peripheral
-        connectedPeripheral?.discoverServices(nil)
-    }
-    
-    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        if let error = error {
-            print(error.localizedDescription)
-        } else {
-            bleDevice?.peripheral = nil
-            print("\(String(describing: peripheral.name)) Disconnected")
-        }
-    }
-    
-    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        if let error = error {
-            print("failed to connect to \(String(describing: peripheral.name))")
-            print(error.localizedDescription)
-        }
-    }
-        
-}
-
-extension DevicesViewController: CBPeripheralDelegate {
-    
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        if let error = error {
-            print(error.localizedDescription)
-        } else if let services = peripheral.services {
-            bleDevice?.services = services
-            for i in services {
-                //print(i)
-                peripheral.discoverCharacteristics(nil, for: i)
-            }
-        }
-    }
-    
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        if let error = error {
-            print(error.localizedDescription)
-        } else if let characteristics = service.characteristics {
-            bleDevice?.characteristics = characteristics
-            for characteristic in characteristics {
-                peripheral.setNotifyValue(true, for: characteristic)
-            }
-        }
-    }
-    
-    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        if let error = error {
-            print(error.localizedDescription)
-        } else if let dataValue = characteristic.value {
-            let byteArray = Array(dataValue)
-            var someNumber: Int = 0
-            for byte in byteArray {
-                someNumber += Int(byte)
-            }
-            let heartRate = String(someNumber)
-            updateLabelDelegate?.didUpdateHeartRateValue(value: heartRate)
-        }
-    }
-    
-    func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
-        
-    }
-    
-    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
-        if let error = error {
-            print(error.localizedDescription)
-        } else {
-            print(RSSI)
-        }
-    }
-        
-}
-
-

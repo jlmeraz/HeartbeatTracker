@@ -36,7 +36,6 @@
 		2CAE4D7F2316DACC00758043 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D7E2316DACC00758043 /* BLEDevice.swift */; };
 		2CAE4D802316DACC00758043 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE4D7E2316DACC00758043 /* BLEDevice.swift */; };
 		2CC787FA231E576B00FA476C /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787F9231E576B00FA476C /* BLEManager.swift */; };
-		2CC787FD231E58FD00FA476C /* BLEDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787FC231E58FD00FA476C /* BLEDatasource.swift */; };
 		2CC787FF231EF44000FA476C /* BLEProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787FE231EF44000FA476C /* BLEProfile.swift */; };
 		2CC78801231FF54C00FA476C /* BLEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC78800231FF54C00FA476C /* BLEModel.swift */; };
 /* End PBXBuildFile section */
@@ -120,7 +119,6 @@
 		2CAE4D7E2316DACC00758043 /* BLEDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDevice.swift; sourceTree = "<group>"; };
 		2CAE4D8123170AC400758043 /* HeartBeatTrackerDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeartBeatTrackerDemo.entitlements; sourceTree = "<group>"; };
 		2CC787F9231E576B00FA476C /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
-		2CC787FC231E58FD00FA476C /* BLEDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDatasource.swift; sourceTree = "<group>"; };
 		2CC787FE231EF44000FA476C /* BLEProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEProfile.swift; sourceTree = "<group>"; };
 		2CC78800231FF54C00FA476C /* BLEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,7 +162,6 @@
 			children = (
 				2CAE4D532316B72700758043 /* TrakerIntents.intentdefinition */,
 				2CC787F8231E573F00FA476C /* BLEManager */,
-				2CC787FB231E58DA00FA476C /* BLEDatasource */,
 				2CAE4D4023162EAF00758043 /* View */,
 				2CAE4D7D2316DA3000758043 /* Model */,
 				2CAE4D1623160B7000758043 /* HeartBeatTrackerDemo */,
@@ -266,14 +263,6 @@
 				2CC787F9231E576B00FA476C /* BLEManager.swift */,
 			);
 			path = BLEManager;
-			sourceTree = "<group>";
-		};
-		2CC787FB231E58DA00FA476C /* BLEDatasource */ = {
-			isa = PBXGroup;
-			children = (
-				2CC787FC231E58FD00FA476C /* BLEDatasource.swift */,
-			);
-			path = BLEDatasource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,7 +445,6 @@
 				2CAE4D1C23160B7000758043 /* RootViewController.swift in Sources */,
 				2CAE4D1823160B7000758043 /* AppDelegate.swift in Sources */,
 				2CAE4D4823163E8200758043 /* DevicesView.swift in Sources */,
-				2CC787FD231E58FD00FA476C /* BLEDatasource.swift in Sources */,
 				2CAE4D542316B72700758043 /* TrakerIntents.intentdefinition in Sources */,
 				2CC787FF231EF44000FA476C /* BLEProfile.swift in Sources */,
 				2C3D0ED423184C1C0062271A /* BLEDeviceTableViewCell.swift in Sources */,
