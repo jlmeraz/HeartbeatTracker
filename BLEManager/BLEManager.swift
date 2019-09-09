@@ -11,10 +11,11 @@ import CoreBluetooth
 
 class BLEManager: NSObject {
     
-    public static let sharedBLEManager = BLEManager()
+    public static let shared = BLEManager()
         
     private var centralManager: CBCentralManager!
     private var connectedDevice: CBPeripheral!
+    var advertisedPeripherals: [DeviceAdvertise] = []
     
     private override init() {
         super.init()
@@ -30,6 +31,11 @@ class BLEManager: NSObject {
     func stopScanningForPeripherals() {
         centralManager.stopScan()
     }
+    
+    func updateFoundDevices() -> [DeviceAdvertise] {
+         
+         return self.advertisedPeripherals
+     }
     
 }
 
@@ -60,7 +66,10 @@ extension BLEManager: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        if peripheral.name != nil {
+        if peripheral.name != nil && !advertisedPeripherals.contains(where: { (foundDevice) -> Bool in
+            foundDevice.name == peripheral.name
+        }) {
+            advertisedPeripherals.append(DeviceAdvertise(name: peripheral.name ?? "Unknown", rssi: RSSI.intValue))
             print(peripheral.name!)
         }
     }
@@ -98,7 +107,7 @@ extension BLEManager: CBPeripheralDelegate {
             }
         }
     }
-    
+
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         if let error = error {
             print(error.localizedDescription)
@@ -108,7 +117,7 @@ extension BLEManager: CBPeripheralDelegate {
             }
         }
     }
-    
+
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let error = error {
             print(error.localizedDescription)
@@ -119,12 +128,13 @@ extension BLEManager: CBPeripheralDelegate {
                 someNumber += Int(byte)
             }
         }
+
     }
-    
+
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
-        
+
     }
-    
+
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         if let error = error {
             print(error.localizedDescription)

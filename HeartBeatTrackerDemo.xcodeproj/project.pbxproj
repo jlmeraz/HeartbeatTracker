@@ -38,6 +38,8 @@
 		2CC787FA231E576B00FA476C /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787F9231E576B00FA476C /* BLEManager.swift */; };
 		2CC787FF231EF44000FA476C /* BLEProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC787FE231EF44000FA476C /* BLEProfile.swift */; };
 		2CC78801231FF54C00FA476C /* BLEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC78800231FF54C00FA476C /* BLEModel.swift */; };
+		2CEC343223258FCB00D6120C /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC343123258FCB00D6120C /* DeviceModel.swift */; };
+		2CEC34382325ECC900D6120C /* BLEManagerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC34372325ECC900D6120C /* BLEManagerProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,8 @@
 		2CC787F9231E576B00FA476C /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		2CC787FE231EF44000FA476C /* BLEProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEProfile.swift; sourceTree = "<group>"; };
 		2CC78800231FF54C00FA476C /* BLEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEModel.swift; sourceTree = "<group>"; };
+		2CEC343123258FCB00D6120C /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		2CEC34372325ECC900D6120C /* BLEManagerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManagerProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,8 @@
 				2CC787F8231E573F00FA476C /* BLEManager */,
 				2CAE4D4023162EAF00758043 /* View */,
 				2CAE4D7D2316DA3000758043 /* Model */,
+				2CEC34362325ECA600D6120C /* Protocols */,
+				2CEC34332325E7E400D6120C /* Extensions */,
 				2CAE4D1623160B7000758043 /* HeartBeatTrackerDemo */,
 				2CAE4D3223160C8600758043 /* TrackerKit */,
 				2CAE4D5B2316BE1200758043 /* TrackerIntent */,
@@ -253,6 +259,7 @@
 				2CAE4D7E2316DACC00758043 /* BLEDevice.swift */,
 				2CC787FE231EF44000FA476C /* BLEProfile.swift */,
 				2CC78800231FF54C00FA476C /* BLEModel.swift */,
+				2CEC343123258FCB00D6120C /* DeviceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +270,21 @@
 				2CC787F9231E576B00FA476C /* BLEManager.swift */,
 			);
 			path = BLEManager;
+			sourceTree = "<group>";
+		};
+		2CEC34332325E7E400D6120C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2CEC34362325ECA600D6120C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2CEC34372325ECC900D6120C /* BLEManagerProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,11 +462,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CAE4D4E231653FA00758043 /* TrackerViewController.swift in Sources */,
+				2CEC343223258FCB00D6120C /* DeviceModel.swift in Sources */,
 				2CAE4D4B2316462600758043 /* DevicesViewController.swift in Sources */,
 				2CC78801231FF54C00FA476C /* BLEModel.swift in Sources */,
 				2CAE4D1C23160B7000758043 /* RootViewController.swift in Sources */,
 				2CAE4D1823160B7000758043 /* AppDelegate.swift in Sources */,
 				2CAE4D4823163E8200758043 /* DevicesView.swift in Sources */,
+				2CEC34382325ECC900D6120C /* BLEManagerProtocols.swift in Sources */,
 				2CAE4D542316B72700758043 /* TrakerIntents.intentdefinition in Sources */,
 				2CC787FF231EF44000FA476C /* BLEProfile.swift in Sources */,
 				2C3D0ED423184C1C0062271A /* BLEDeviceTableViewCell.swift in Sources */,

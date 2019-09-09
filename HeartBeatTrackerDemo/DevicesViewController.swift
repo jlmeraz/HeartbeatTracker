@@ -12,8 +12,9 @@ import CoreBluetooth
 class DevicesViewController: UIViewController {
     
     let devicesView = DevicesView()
-    var devices: [BLEDevice] = []
-    var bleDevice: BLEModel?
+    var devices: [DeviceAdvertise] = {
+        return BLEManager.shared.updateFoundDevices()
+    }()
     var trackerViewController: TrackerViewController!
     
     override func loadView() {
@@ -24,11 +25,12 @@ class DevicesViewController: UIViewController {
         super.viewDidLoad()
         title = "My Devices"
         definesPresentationContext = true
-        BLEManager.sharedBLEManager.startScanningForPeripherals()
+        BLEManager.shared.startScanningForPeripherals()
+        setupTableView()
     }
     
     deinit {
-        BLEManager.sharedBLEManager.stopScanningForPeripherals()
+        BLEManager.shared.stopScanningForPeripherals()
         print("DevicesViewController deinitialized !")
     }
     
@@ -36,6 +38,7 @@ class DevicesViewController: UIViewController {
         devicesView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DeviceCell")
         devicesView.tableView.delegate = self
         devicesView.tableView.dataSource = self
+        reloadTableView()
     }
     
     func reloadTableView() {
@@ -70,12 +73,10 @@ extension DevicesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeviceCell", for: indexPath) as UITableViewCell
-        if devices[indexPath.row].peripheral.name != nil {
-            cell.textLabel?.text = devices[indexPath.row].peripheral.name
-        }
-        
+        cell.textLabel?.text = devices[indexPath.row].name
         cell.textLabel?.textColor = .orange
         return cell
     }
     
 }
+
