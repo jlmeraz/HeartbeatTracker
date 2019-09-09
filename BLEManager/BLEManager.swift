@@ -16,12 +16,13 @@ class BLEManager: NSObject {
     private var centralManager: CBCentralManager!
     private var connectedDevice: CBPeripheral!
     var advertisedPeripherals: [DeviceAdvertise] = []
+    weak var devicesTableViewUpdateDelegate: DevicesTableViewUpdateDelegate?
     
     private override init() {
         super.init()
-
-        let bleQueue = DispatchQueue(label: "bleQueue", qos: .userInteractive, attributes: .concurrent, autoreleaseFrequency: .inherit, target: .global(qos: .userInteractive))
-        centralManager = CBCentralManager(delegate: self, queue: bleQueue, options: [CBCentralManagerScanOptionAllowDuplicatesKey:false])
+        
+        centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey:false])
+        
     }
     
     func startScanningForPeripherals() {
@@ -32,10 +33,10 @@ class BLEManager: NSObject {
         centralManager.stopScan()
     }
     
-    func updateFoundDevices() -> [DeviceAdvertise] {
-         
-         return self.advertisedPeripherals
-     }
+    //An alternative could be to store found peripherals in user defaults
+    func retrieveFoundPeripherals(_ scanCompletion: @escaping([DeviceAdvertise]) -> ()) {
+        scanCompletion(advertisedPeripherals)
+    }
     
 }
 
@@ -69,7 +70,9 @@ extension BLEManager: CBCentralManagerDelegate {
         if peripheral.name != nil && !advertisedPeripherals.contains(where: { (foundDevice) -> Bool in
             foundDevice.name == peripheral.name
         }) {
-            advertisedPeripherals.append(DeviceAdvertise(name: peripheral.name ?? "Unknown", rssi: RSSI.intValue))
+            let newDevice = DeviceAdvertise(name: peripheral.name ?? "Unknown", rssi: RSSI.intValue)
+            advertisedPeripherals.append(newDevice)
+            devicesTableViewUpdateDelegate?.updateDeviceTableView(newDevice)
             print(peripheral.name!)
         }
     }

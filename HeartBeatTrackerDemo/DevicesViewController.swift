@@ -12,21 +12,29 @@ import CoreBluetooth
 class DevicesViewController: UIViewController {
     
     let devicesView = DevicesView()
-    var devices: [DeviceAdvertise] = {
-        return BLEManager.shared.updateFoundDevices()
-    }()
+    var devices: [DeviceAdvertise] = []
     var trackerViewController: TrackerViewController!
     
     override func loadView() {
         view = devicesView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if devices.count == 0 {
+            BLEManager.shared.retrieveFoundPeripherals { (foundDevices) in
+                self.devices = foundDevices
+            }
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Devices"
         definesPresentationContext = true
-        BLEManager.shared.startScanningForPeripherals()
         setupTableView()
+        BLEManager.shared.devicesTableViewUpdateDelegate = self
+        BLEManager.shared.startScanningForPeripherals()
     }
     
     deinit {
@@ -38,7 +46,6 @@ class DevicesViewController: UIViewController {
         devicesView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DeviceCell")
         devicesView.tableView.delegate = self
         devicesView.tableView.dataSource = self
-        reloadTableView()
     }
     
     func reloadTableView() {
@@ -80,3 +87,11 @@ extension DevicesViewController: UITableViewDataSource {
     
 }
 
+extension DevicesViewController: DevicesTableViewUpdateDelegate {
+    
+    func updateDeviceTableView(_ deviceAd: DeviceAdvertise) {
+        devices.append(deviceAd)
+        reloadTableView()
+    }
+    
+}

@@ -16,8 +16,8 @@ protocol UpdateManagerFoundDevicesDelegate: AnyObject {
 }
 
 //Trigger DeviceTableView update
-protocol UpdateDevicesTableViewDelegate: AnyObject {
+protocol DevicesTableViewUpdateDelegate: AnyObject {
     
-    func updateDeviceTableView()
+    func updateDeviceTableView(_ deviceAd: DeviceAdvertise)
     
 }
