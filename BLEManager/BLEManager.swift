@@ -14,9 +14,10 @@ class BLEManager: NSObject {
     public static let shared = BLEManager()
         
     private var centralManager: CBCentralManager!
-    private var connectedDevice: CBPeripheral!
+    private var connectedDevice: CBPeripheral?
     var advertisedPeripherals: [DeviceAdvertise] = []
     weak var devicesTableViewUpdateDelegate: DevicesTableViewUpdateDelegate?
+    weak var deviceCharacteristicValueDelegate: CharacteristicValueChangedDelegate?
     
     private override init() {
         super.init()
@@ -36,6 +37,14 @@ class BLEManager: NSObject {
     //An alternative could be to store found peripherals in user defaults
     func retrieveFoundPeripherals(_ scanCompletion: @escaping([DeviceAdvertise]) -> ()) {
         scanCompletion(advertisedPeripherals)
+    }
+    
+    //Connect to selected peripheral
+    func connectToPeripheral(_ deviceUUID: [UUID]) {
+        connectedDevice = centralManager.retrievePeripherals(withIdentifiers: deviceUUID).first
+        guard let device = connectedDevice else { return }
+//        device.delegate = self
+        centralManager.connect(device, options: [:])
     }
     
 }
@@ -70,7 +79,7 @@ extension BLEManager: CBCentralManagerDelegate {
         if peripheral.name != nil && !advertisedPeripherals.contains(where: { (foundDevice) -> Bool in
             foundDevice.name == peripheral.name
         }) {
-            let newDevice = DeviceAdvertise(name: peripheral.name ?? "Unknown", rssi: RSSI.intValue)
+            let newDevice = DeviceAdvertise(name: peripheral.name ?? "Unknown", rssi: RSSI.intValue, uuid: peripheral.identifier)
             advertisedPeripherals.append(newDevice)
             devicesTableViewUpdateDelegate?.updateDeviceTableView(newDevice)
             print(peripheral.name!)
@@ -79,7 +88,8 @@ extension BLEManager: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("Connection to \(String(describing: peripheral.name)) Succesful")
-        
+        peripheral.delegate = self
+        peripheral.discoverServices(nil)
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
@@ -129,6 +139,8 @@ extension BLEManager: CBPeripheralDelegate {
             var someNumber: Int = 0
             for byte in byteArray {
                 someNumber += Int(byte)
+                deviceCharacteristicValueDelegate?.updateTrackingLabel(someNumber.description)
+                print(someNumber)
             }
         }
 

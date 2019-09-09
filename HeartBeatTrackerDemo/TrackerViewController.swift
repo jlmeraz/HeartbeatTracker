@@ -10,12 +10,6 @@ import UIKit
 import Intents
 import IntentsUI
 
-protocol UpdateValueForHeartRateLabelDelegate: AnyObject {
-    
-    func didUpdateHeartRateValue(value: String)
-    
-}
-
 class TrackerViewController: UIViewController {
     
     let trackerView = TrackerView()
@@ -29,6 +23,7 @@ class TrackerViewController: UIViewController {
         title = "My Heart Rate"
         addShortcutsButton()
         donateIntent()
+        BLEManager.shared.deviceCharacteristicValueDelegate = self
     }
     
     func addShortcutsButton() {
@@ -120,9 +115,9 @@ extension TrackerViewController: INUIEditVoiceShortcutViewControllerDelegate {
     
 }
 
-extension TrackerViewController: UpdateValueForHeartRateLabelDelegate {
+extension TrackerViewController: CharacteristicValueChangedDelegate {
     
-    func didUpdateHeartRateValue(value: String) {
+    func updateTrackingLabel(_ value: String) {
         trackerView.heartbeatLabel.text = value
     }
     

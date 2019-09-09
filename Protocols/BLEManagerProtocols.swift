@@ -21,3 +21,11 @@ protocol DevicesTableViewUpdateDelegate: AnyObject {
     func updateDeviceTableView(_ deviceAd: DeviceAdvertise)
     
 }
+
+//Update bluetooth data tracking label
+
+protocol CharacteristicValueChangedDelegate: AnyObject {
+    
+    func updateTrackingLabel(_ value: String)
+    
+}

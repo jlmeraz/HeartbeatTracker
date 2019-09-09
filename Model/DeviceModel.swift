@@ -12,10 +12,12 @@ class DeviceAdvertise {
     
     var name: String?
     var rssi: Int?
+    var uuid: UUID
     
-    init(name: String, rssi: Int) {
+    init(name: String, rssi: Int, uuid: UUID) {
         self.name = name
         self.rssi = rssi
+        self.uuid = uuid
     }
     
 }

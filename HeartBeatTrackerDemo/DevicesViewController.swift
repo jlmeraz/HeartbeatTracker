@@ -68,6 +68,13 @@ extension DevicesViewController: UITableViewDelegate {
 //        present(trackerViewController, animated: true) {
 //            self.updateLabelDelegate = self.trackerViewController
 //        }
+        var peripheralUUID: [UUID] = []
+        peripheralUUID.append(devices[indexPath.row].uuid)
+        BLEManager.shared.connectToPeripheral(peripheralUUID)
+        trackerViewController = TrackerViewController(nibName: nil, bundle: nil)
+        present(trackerViewController, animated: true) {
+            print("present trackerVC")
+        }
     }
     
 }
